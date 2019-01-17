@@ -1,0 +1,132 @@
+paths:
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: Login for user
+      description: Get token when login
+
+      produces:
+      - application/json
+
+      parameters:
+        - in: body
+          name: username
+          required: true
+          description: keyword for login user (username, email, firtname, lastname)
+          schema:
+            type: string
+        - in: body
+          name: password
+          schema:
+            type: string
+          required: true
+          description: limit number of users for get
+        - in: body
+          name: client_id
+          schema:
+            type: string
+          required: true
+          description: client id of laravel passport
+        - in: body
+          name: client_secret
+          schema:
+            type: string
+          required: true
+          description: client secret of laravel passport
+      responses:
+        200:
+          description: Success login
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/UserAuth"
+  /auth/me:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - auth
+      summary: Get curent user info
+      description: Get current user info
+      produces:
+      - application/json
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/UserMe"
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/UnauthorizedError'
+components:
+  schemas:
+    UserAuth:
+      type: object
+      properties:
+        errors:
+          type: boolean
+        data:
+          type: object
+          properties:
+            user:
+              $ref: '#/definitions/User'
+            token:
+              type: object
+              properties:
+                token_type:
+                  type: string
+                expires_in:
+                  type: number
+                access_token:
+                  type: string
+                refresh_token:
+                  type: string
+    UserMe:
+      type: object
+      properties:
+        errors:
+          type: boolean
+        data:
+          type: object
+          properties:
+            user:
+              $ref: '#/definitions/User'
+definitions:
+  User:
+    properties:
+      id:
+        type: number
+      avatar:
+        type: string
+      username:
+        type: string
+      birth_day:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+      address:
+        type: string
+      phone_number:
+        type: string
+      role:
+        type: string
+      status:
+        type: string
+      fb_id:
+        type: string
+      gg_id:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      country_code:
+        type: string

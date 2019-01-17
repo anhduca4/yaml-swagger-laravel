@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Simple API
+  description: A simple API to learn how to write OpenAPI Specification
+  contact:
+      name: Example
+      url: 'https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v3.0'
+servers:
+  - url: /api/v1
+    description: Optional server description, e.g. Main (production) server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    UnauthorizedError:
+      type: object
+      properties:
+        errors:
+          type: boolean
+        message:
+          type: string
+        status_code:
+          type: number
+
+security:
+  - bearerAuth: []

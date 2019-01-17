@@ -1,0 +1,15 @@
+{
+    "name": "endanguyen/yaml-swagger-laravel",
+    "description": "Create swagger read only yaml slpit file to easy develop",
+    "type": "laravel, yaml, swagger",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nguyen Anh Duc",
+            "email": "enda.nguyen@nexusfrontier.tech"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^4.2"
+    }
+}
