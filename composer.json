@@ -1,7 +1,8 @@
 {
     "name": "endanguyen/yaml-swagger-laravel",
     "description": "Create swagger read only yaml slpit file to easy develop",
-    "type": "laravel, yaml, swagger",
+    "keywords": ["laravel-yaml-swagger", "swagger", "yaml", "laravel"],
+    "type": "laravel-package",
     "license": "MIT",
     "authors": [
         {
