@@ -16,7 +16,12 @@
         }
     },
     "require": {
-        "symfony/yaml": "^4.2"
+    },
+    "require-dev": {
+        "symfony/yaml": "~3.4|~4.0"
+    },
+    "conflict": {
+        "symfony/yaml": "<3.4"
     },
     "minimum-stability": "dev",
     "extra": {
