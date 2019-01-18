@@ -22,7 +22,7 @@ class YamlSwaggerLaravelServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->publishes([
-                $viewPath => config('swagger.paths.views'),
+                $viewPath => config('swagger.paths.views', resource_path('views/vendor/swagger')),
             ], 'views');
             $this->publishes([__DIR__.'/../resources/assets' => public_path('vendor/laravel-swagger')], 'laravel-swagger-assets');
             $this->publishes([__DIR__.'/../documents/swagger_v1' => base_path('documents/swagger_v1')], 'laravel-swagger-documents');
