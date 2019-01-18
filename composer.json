@@ -17,5 +17,11 @@
     },
     "require": {
         "symfony/yaml": "^4.2"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }
