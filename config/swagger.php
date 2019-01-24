@@ -46,4 +46,10 @@ return [
             'oauth2_callback' => [],
         ],
     ],
+    'auth' => [
+        [
+        // 'username' => 'anhduca4',
+        // 'password' => '$2y$10$BhLzXt4my8.i0VLkvX8zzugpXl9UO8oU/GX3GtyNyn9vXXCFJuhPC',// app('hash')->make('password');
+        ],
+    ],
 ];

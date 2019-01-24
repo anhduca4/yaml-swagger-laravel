@@ -8,32 +8,16 @@ paths:
 
       produces:
       - application/json
-
-      parameters:
-        - in: body
-          name: username
-          required: true
-          description: keyword for login user (username, email, firtname, lastname)
-          schema:
-            type: string
-        - in: body
-          name: password
-          schema:
-            type: string
-          required: true
-          description: limit number of users for get
-        - in: body
-          name: client_id
-          schema:
-            type: string
-          required: true
-          description: client id of laravel passport
-        - in: body
-          name: client_secret
-          schema:
-            type: string
-          required: true
-          description: client secret of laravel passport
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthLogin'
+          text/plain:
+            schema:
+              type: string
       responses:
         200:
           description: Success login
@@ -97,6 +81,26 @@ components:
           properties:
             user:
               $ref: '#/definitions/User'
+    AuthLogin:
+      type: object
+      properties:
+        username:
+          type: string
+          description: Username or email or phone
+        password:
+          type: string
+          description: password
+        client_id:
+          type: string
+          description: client id of laravel passport
+        client_secret:
+          type: string
+          description: client secret of laravel passport
+      required:
+        - username
+        - password
+        - client_id
+        - client_secret
 definitions:
   User:
     properties:

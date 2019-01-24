@@ -31,6 +31,7 @@
   </head>
 
   <body>
+    <a href="{{route('swagger.logout')}}">logout</a>
     <div id="swagger-ui"></div>
 
     <script src="{{asset('/vendor/laravel-swagger/swagger-ui-bundle.js')}}"> </script>
